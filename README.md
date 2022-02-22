@@ -1,10 +1,7 @@
 # TagBase: Tag-Based Music Search and Recommendation Service
 
-<<<<<<< HEAD
-This is a team project by K-Digital AI Service Development Bootcamp trainees from 8 to 23 February 2022. The purpose of this project is to make a working web service with the knowledge we have learned from the course. 
-=======
-This is a team project by K-Digital AI Service Development Bootcamp trainees from 8 to 23 February 2022. The purpose of this project is to make a working web service with the knowledge we have learned from the course.TagBase (#base) is a Tag-Based Music Search and Recommendation Service. 
->>>>>>> b9bc123526ea85c9e17d47c8b16ff446b5d8c69b
+This is a team project by K-Digital AI Service Development Bootcamp trainees from 8 to 23 February 2022. The purpose of this project is to make a working web service with the knowledge we have learned from the course.
+
 
 ![unnamed](https://user-images.githubusercontent.com/44106603/155085779-84159d4b-8ede-4e38-a55c-a4955d788563.png)
 
