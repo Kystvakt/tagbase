@@ -7,25 +7,24 @@
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
-    <!-- pybo CSS -->
+    <!-- tagbase CSS -->
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <!-- Font Awesome JS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 --> <title>마이페이지</title></head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 --> <title>Mytag</title>
+</head>
+
 <body>
 <!-- 네비게이션바 -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/pybo/">#base</a>
-        <a href="/pybo/" class="nav-link text-light">Main</a>
-
+        <a class="navbar-brand" href="/tagbase/">#base</a>
+        <a href="/tagbase/" class="nav-link text-light">Main</a>
 
         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-align-justify"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav ml-auto">
-
-
                 <li class="nav-item active">
                     <a class="nav-link" href="/common/settings/base/"><i class="fas fa-cog"></i> Mypage</a>
                 </li>
@@ -50,7 +49,7 @@
 <h5 class="border-bottom pb-2 mb-3">Mypage</h5>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="/common/settings/base/">기본정보</a>
+        <a class="nav-link active" href="/common/mypage1/">기본정보</a>
     </li>
     <li class="nav-item">
         <a class="nav-link " href="/common/password/">비밀번호 변경</a>
@@ -68,26 +67,38 @@
     <input type="hidden" name="next" value="">  <!-- 로그인 성공후 이동되는 URL -->
 
 
-
-
     <div class="form-group mt-2">
-        <label for="username">사용자명 (ID)</label>
-        <input type="text" class="form-control" name="username" id="username" value="{{ user.username }}">
+        <header>
+        <h4>My tag</h4>
+        </header>
+   <section>
+     <article>
+            <table>
+                <thead>
+                     <tr>
+                          <th colspan='4'><b>선호 태그</b></th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                    <tr>
+                        {% if tag_list %}
+                            {% for tag in tag_list %}
+                                <td>#{{ tag }}</td>
+                            {% endfor %}
+                        {% endif %}
+                    </tr>
+                 </tbody>
+            </table>
+     </article>
+       <nav>
+            <form method='get'>
+                <input type='text' name='search'>
+                <input type='submit' value='검색'>
+            </form>
+      </nav>
+    </section>
     </div>
-    <div class="form-group">
-        <label for="email">이메일</label>
-        <input type="text" class="form-control" name="email" id="email" readonly="" value="{{ user.email }}">
-    </div>
-
 </form>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
 
 <!-- jQuery JS -->
 <script src="/static/jquery-3.4.1.min.js"></script>

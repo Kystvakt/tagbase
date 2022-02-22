@@ -6,13 +6,36 @@
         <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
-        <!-- pybo CSS -->
+        <!-- tagbase CSS -->
         <link rel="stylesheet" type="text/css" href="/static/style.css">
         <!-- Font Awesome JS -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
         <title>TagBase: {{ searching }}</title>
     </head>
     <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/tagbase/main">#base</a>
+                <a href="/tagbase/main" class="nav-link text-light">Main</a>
+
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/common/settings/base/"><i class="fas fa-cog"></i> Mypage</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/common/logout/"><i class="fas fa-sign-out-alt"></i> 로그아웃</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <table>
             <th>검색할 태그: #{{ searching }}, 곡 목록 {{ listlen }}개 확보</th>
             <tr><!-- 인덱스 행 시작 -->
