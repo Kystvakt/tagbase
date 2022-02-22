@@ -52,17 +52,10 @@ def logout(request):
 
 def mypage(request):
     if request.user.is_authenticated:
-        context = {"username": request.user}
-        return render(request, "common/mypage.html", context)
-    return redirect("common/login.html")
-
-
-def mytag(request):
-    if request.user.is_authenticated:
         current_user = User.objects.get(user=request.user)
         tag_list = current_user.user_stats.order_by('-tag_count')
         context = {"username": request.user, "tag_list": tag_list}
-        return render(request, "common/mytag.html", context)
+        return render(request, "common/mypage.html", context)
     return redirect("common/login.html")
 
 

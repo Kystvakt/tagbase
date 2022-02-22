@@ -1,6 +1,10 @@
 # TagBase: Tag-Based Music Search and Recommendation Service
 
+<<<<<<< HEAD
 This is a team project by K-Digital AI Service Development Bootcamp trainees from 8 to 23 February 2022. The purpose of this project is to make a working web service with the knowledge we have learned from the course. 
+=======
+This is a team project by K-Digital AI Service Development Bootcamp trainees from 8 to 23 February 2022. The purpose of this project is to make a working web service with the knowledge we have learned from the course.TagBase (#base) is a Tag-Based Music Search and Recommendation Service. 
+>>>>>>> b9bc123526ea85c9e17d47c8b16ff446b5d8c69b
 
 ## Getting Started
 
@@ -64,10 +68,24 @@ Open an internet browser, and go to 'localhost:8000/tagbase/main'.
 
 The names are listed in alphabetical order.
 
+<<<<<<< HEAD
 * **오은수** - oes123468@gmail.com
 * **이상헌** - rusty4143@gmail.com
 * **이승환** - rheinyx@gmail.com
 * **이찬욱** - dzm2111@gmail.com
+=======
+* **오은수**
+* **이상헌**
+* **이승환**
+* **이찬욱**
+
+## License
+
+오은수 - oes123468@gmail.com
+이상헌 - rusty4143@gmail.com
+이승환 - rheinyx@gmail.com
+이찬욱 - dzm2111@gmail.com
+>>>>>>> b9bc123526ea85c9e17d47c8b16ff446b5d8c69b
 
 ## Acknowledgments
 
