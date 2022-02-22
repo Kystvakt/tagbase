@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>메인 페이지</title><!-- 페이지 제목 -->
+    </head>
+    <body>
+        <p><!-- 검색 시작 -->
+            <div class="container my-3">
+                <div class="col-4 input-group">
+                    <input type="text" class="form-control" placeholder="검색할 태그를 입력하세요" aria-label="검색할 태그를 입력하세요" aria-aria-describedby="button-search" id="search-input">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="btn_search" onclick="searchTag()">검색</button>
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p><!-- 검색 끝 -->
+            <table border="0">
+                <th>인기 태그</th>
+                <!-- Tag 모델에 tag, count, datetime이라는 속성이 있습니다.
+                     tag는 그냥 태그(스트링), count는 인기 태그를 긁어왔을 때
+                     몇 번이나 나온 건지, datetime은 그 Tag가 언제 생성됐는지
+                     (=메인 페이지 새로고침한 때)를 나타냅니다.
+                     페이지를 새로고침하면
+                     1. 스크레이핑을 통해 태그를 긁어옴
+                     2. 그 태그가 이미 DB에 있는지 확인
+                       2-1. 있다면 datetime과 count를 업데이트
+                       2-2. 없으면 DB에 추가
+                     3. 그렇게 스크레이핑 된 태그 가운데 가장 최근인 태그
+                        상위 10개를 노출시킴 (페이지를 로드할 때 진행되는
+                        작업이므로 현 시각 인기 태그임)
+                     -->
+                {% if top_tag_list_u and top_tag_list_d %}
+                    <tr align="center"><!-- 첫 번째 줄 -->
+                    {% for tag in top_tag_list_u %}
+                        <td>{{ tag.tag }}</td>
+                    {% endfor %}
+                    </tr>
+                    <tr align="center"><!-- 두 번째 줄 -->
+                    {% for tag in top_tag_list_d %}
+                        <td>{{ tag.tag }}</td>
+                    {% endfor %}
+                    </tr>
+                {% endif %}
+            </table>
+        </p>
+        <p>
+            <table border="0">
+                <th>추천 태그</th>
+                <!-- 인기 태그 DB에서 count가 가장 높은 태그, 즉 인기 태그에
+                     가장 자주 올라오는 태그 기준으로 10개가 노출됨 -->
+                {% if rec_tag_list_u and rec_tag_list_d %}
+                    <tr align="center"><!-- 첫 번째 줄 -->
+                    {% for tag in rec_tag_list_u %}
+                        <td>{{ tag.tag }}</td>
+                    {% endfor %}
+                    </tr>
+                    <tr align="center"><!-- 두 번째 줄 -->
+                    {% for tag in rec_tag_list_d %}
+                        <td>{{ tag.tag }}</td>
+                    {% endfor %}
+                    </tr>
+                {% endif %}
+            </table>
+        </p>
+        <p>
+            <table border="0">
+                <th>통합 인기 차트</th>
+                    <tr>
+                        <td>랭크</td>
+                        <td>제목</td>
+                        <td>아티스트</td>
+                        <td>앨범</td>
+                    </tr>
+                {% if top_chart %}
+                    {% for info in top_chart %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            {% for item in info %}
+                                <td>{{ item }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </table>
+        </p>
+    <script type="text/javascript">
+    var temp;
+    function searchTag() {
+        let searchValue = document.getElementById('search-input').value.trim();
+        location.href = "/tagbase/search/" + searchValue + "/";
+    };
+    </script>
+    </body>
+</html>

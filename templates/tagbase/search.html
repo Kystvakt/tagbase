@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TagBase: {{ searching }}</title>
+    </head>
+    <body>
+        <table>
+            <th>검색할 태그: #{{ searching }}, 곡 목록 {{ listlen }}개 확보</th>
+            <tr><!-- 인덱스 행 시작 -->
+                <td>제목</td>
+                <td>가수</td>
+                <td>앨범</td>
+            </tr><!-- 인덱스 행 끝 -->
+            {% if song_list %}<!-- song_list가 있다면 -->
+                {% for info in song_list %}
+                    <tr>
+                        <td>{{ info.title }}</td>
+                        <td>{{ info.artist }}</td>
+                        <td>{{ info.album }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </body>
+</html>
