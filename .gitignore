@@ -1,1 +1,7 @@
 config/settings.py
+common/migrations
+tagbase/migrations
+db.sqlite3
+chromedriver.exe
+### IDEA ###
+.idea

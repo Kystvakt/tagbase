@@ -2,9 +2,40 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>메인 페이지</title><!-- 페이지 제목 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
+        <!-- pybo CSS -->
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <!-- Font Awesome JS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
+        <title>#base - Main</title><!-- 페이지 제목 -->
     </head>
     <body>
+        <!-- 네비게이션바 -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/pybo/">#base</a>
+                <a href="/pybo/" class="nav-link text-light">Main</a>
+
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/common/settings/base/"><i class="fas fa-cog"></i> Mypage</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/common/logout/"><i class="fas fa-sign-out-alt"></i> 로그아웃</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <p><!-- 검색 시작 -->
             <div class="container my-3">
                 <div class="col-4 input-group">
@@ -18,19 +49,6 @@
         <p><!-- 검색 끝 -->
             <table border="0">
                 <th>인기 태그</th>
-                <!-- Tag 모델에 tag, count, datetime이라는 속성이 있습니다.
-                     tag는 그냥 태그(스트링), count는 인기 태그를 긁어왔을 때
-                     몇 번이나 나온 건지, datetime은 그 Tag가 언제 생성됐는지
-                     (=메인 페이지 새로고침한 때)를 나타냅니다.
-                     페이지를 새로고침하면
-                     1. 스크레이핑을 통해 태그를 긁어옴
-                     2. 그 태그가 이미 DB에 있는지 확인
-                       2-1. 있다면 datetime과 count를 업데이트
-                       2-2. 없으면 DB에 추가
-                     3. 그렇게 스크레이핑 된 태그 가운데 가장 최근인 태그
-                        상위 10개를 노출시킴 (페이지를 로드할 때 진행되는
-                        작업이므로 현 시각 인기 태그임)
-                     -->
                 {% if top_tag_list_u and top_tag_list_d %}
                     <tr align="center"><!-- 첫 번째 줄 -->
                     {% for tag in top_tag_list_u %}
